@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>右侧定宽左侧自适应</title>
+	<style type="text/css">
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		.box1{
+			margin-bottom: 20px;
+			padding-left: 200px;
+			overflow: hidden;
+		}
+		.box1 .left{
+			float: left;
+			width: 100%;
+			margin-left: -200px;
+			height: 500px;
+			background-color: #f40;
+		}
+		.box1 .right{
+			float: right;
+			width: 200px;
+			height: 500px;
+			background-color: gray;
+		}
+
+		.box2{
+			overflow: hidden;
+			margin-bottom: 20px;
+		}
+		.box2 .right{
+			float: right;
+			width: 200px;
+			height: 500px;
+			background-color: gray;
+		}
+		.box2 .left{
+			height: 500px;
+			background-color: #f40;
+			overflow: hidden;
+		}
+
+		.box3{
+			display: flex;
+			height: 500px;
+		}
+		.box3 .left{
+			flex: 1;
+			background-color: #f40;
+		}
+		.box3 .right{
+			width: 200px;
+			background-color: gray;
+		}
+	</style>
+</head>
+<body>
+	<!-- 使用float+margin实现 -->
+	<div class="box1">
+    	<div class="left">左列自适应</div>
+    	<div class="right">右列定宽</div>
+	</div>
+	<!-- 使用float+overflow实现 -->
+	<div class="box2">
+		<div class="right">右列定宽</div>
+    	<div class="left">左列自适应</div>
+	</div>
+	<!-- 使用flex实现 -->
+	<div class="box3">
+		<div class="left">左列自适应</div>
+		<div class="right">右列定宽</div>
+	</div>
+</body>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>一列不定一列自适应</title>
+	<style type="text/css">
+		.box1{
+			display: flex;
+			height: 500px;
+			margin-bottom: 20px;
+		}
+		.box1 .left{
+			background-color: #f40;
+		}
+		.box1 .right{
+			flex: 1;
+			background-color: gray;
+		}
+
+		.box2{
+			
+			overflow: hidden;
+		}
+		.box2 .left{
+			float: left;
+			height: 500px;
+			background-color: #f40;
+		}
+		.box2 .right{
+			overflow: hidden;
+			height: 500px;
+			background-color: gray;
+		}
+	</style>
+</head>
+<body>
+	<!-- 使用flex实现 -->
+	<div class="box1">
+		<div class="left">左列自适应</div>
+		<div class="right">右列定宽</div>
+	</div>
+	<!-- 使用float+overflow实现 -->
+	<div class="box2">
+		<div class="left">左列自适应</div>
+		<div class="right">右列定宽</div>
+	</div>
+
+</body>
+</html>

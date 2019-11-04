@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>两侧定宽，中间自适应</title>
+	<style type="text/css">
+		.header{
+			height: 50px;
+			background-color: #ccc;
+		}
+		.left1{
+			float: left;
+			width: 100px;
+		    height: 500px;
+		    margin-left: -100%;
+		    background-color: #f30;
+		}
+		.center1{
+			height: 500px;
+		    float: left;
+		    width: 100%;
+		    background-color: gray;
+		}
+		.center_inbox{
+			height: 480px;
+		    border: 1px solid #000;
+		    margin: 0 200px 0 100px;  /*关键!!!左右边界等于左右盒子的宽度,多出来的为盒子间隔*/
+		}
+		.right1{
+			float: left;
+			width: 200px;
+		    height: 500px;
+		    margin-left: -200px;  /*使right到指定的位置,值等于自身宽度*/
+		    background-color: #f30;
+		}
+		.footer{
+			clear: both;  /*注意清除浮动!!*/
+			height: 50px;
+			background-color: #ccc;
+			margin-bottom: 20px;
+		}
+
+
+		.parent2{
+			box-sizing: border-box;
+		    height: 500px;
+		    padding: 0 200px 0 100px;  /*为了使#center摆正,左右padding分别等于左右盒子的宽,可以结合左右盒子相对定位的left调整间距*/
+
+		}
+		.left2{
+			margin-left: -100%;  /*使#left上去一行*/
+		    position: relative;
+		    left: -100px;  /*相对定位调整#left的位置,正值大于或等于自身宽度*/
+		    float: left;
+		    width: 100px;
+		    height: 500px;
+		    background-color: #f00;
+		}
+		.center2{
+			float: left;
+		    width: 100%;  /*由于#parent的padding,达到自适应的目的*/
+		    height: 500px;
+		    box-sizing: border-box;
+		    border: 1px solid #000;
+		    background-color: gray;
+		}
+		.right2 {
+		    position: relative;
+		    left: 200px; /*相对定位调整#right的位置,大于或等于自身宽度*/
+		    width: 200px;
+		    height: 500px;
+		    margin-left: -200px;  /*使#right上去一行*/
+		    float: left;
+		    background-color: #f30;
+		}
+
+
+		.parent3{
+			display: flex;
+			height: 500px;
+		}
+		.left3{
+			width: 100px;
+   			background-color: #f30;
+		}
+		.center3{
+			flex: 1;  /*均分#parent剩余的部分*/
+    		background-color: gray;
+		}
+		.right3{
+			width: 200px;
+    		background-color: #f30;
+		}
+
+
+		.parent4 {
+		    position: relative; /*子绝父相*/
+		}
+		.left4 {
+		    position: absolute;
+		    top: 0;
+		    left: 0;
+		    width: 100px;
+		    height: 500px;
+		    background-color: #f00;
+		}
+		.center4 {
+		    height: 500px;
+		    margin-left: 100px; /*大于等于#left的宽度,或者给#parent添加同样大小的padding-left*/
+		    margin-right: 200px;  /*大于等于#right的宽度,或者给#parent添加同样大小的padding-right*/
+		    background-color: #eeff2b;
+		}
+		.right4 {
+		    position: absolute;
+		    top: 0;
+		    right: 0;
+		    width: 200px;
+		    height: 500px;
+		    background-color: #0f0;
+		}
+
+	</style>
+</head>
+<body>
+	<!-- 双飞翼布局方法 -->
+	<div class="header"></div>
+	<!--中间栏需要放在前面-->
+	<div class="parent1">
+	    <div class="center1">
+	        <div class="center_inbox">中间自适应</div>
+	        <hr>  <!--方便观察原理-->
+	    </div>
+	    <div class="left1">左列定宽</div>
+	    <div class="right1">右列定宽</div>
+	</div>
+	<div class="footer"></div>
+
+	<!-- 圣杯布局方法 -->
+	<div class="header"></div>
+	<div class="parent2">
+	    <!--#center需要放在前面-->
+	    <div class="center2">中间自适应
+	    </div>
+	    <div class="left2">左列定宽</div>
+	    <div class="right2">右列定宽</div>
+	</div>
+	<div class="footer"></div>
+
+	<!-- 使用flex实现 -->
+	<div class="parent3">
+	    <div class="left3">左列定宽</div>
+	    <div class="center3">中间自适应</div>
+	    <div class="right3">右列定宽</div>
+	</div>
+
+	<!-- 使用position实现 -->
+	<div class="parent4">
+	    <div class="left4">左列定宽</div>
+	    <div class="center4">中间自适应</div>
+	    <div class="right4">右列定宽</div>
+	</div>
+
+</body>
+</html>

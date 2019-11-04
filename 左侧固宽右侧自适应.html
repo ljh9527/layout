@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>左侧固宽右侧自适应</title>
+	<style type="text/css">
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		.box1{
+			width: 100%;
+			margin-bottom: 20px;
+		}
+		.box1 .left{
+			float: left;
+			background-color: #f40;
+			width: 200px;
+			height: 500px;
+		}
+		.box1 .right{
+			background-color: gray;
+			margin-left: 200px;
+			height: 500px;
+		}
+
+
+		.box2{
+			width: 100%;
+			margin-bottom: 20px;
+			overflow: hidden;
+		}
+		.box2 .left{
+			float: left;
+			background-color: #f40;
+			width: 200px;
+			height: 500px;
+		}
+		.box2 .right-fix{
+			width: 100%;
+			float: right;
+			margin-left: -200px;
+		}
+		.right-fix .right{
+			margin-left: 200px;
+			background-color: gray;
+			height: 500px;
+		}
+
+		.box3{
+			width: 100%;
+			margin-bottom: 20px;
+		}
+		.box3 .left{
+			float: left;
+			background-color: #f40;
+			width: 200px;
+			height: 500px;
+		}
+		.box3 .right{
+			overflow: hidden;
+			height: 500px;
+			background-color: gray;
+		}
+
+		#parent{
+    		position: relative;  /*子绝父相*/
+    		height: 500px;
+    		margin-bottom: 20px;
+		}
+		#left {
+		    position: absolute;
+		    top: 0;
+		    left: 0;
+		    background-color: #f00;
+		    width: 100px;
+		    height: 500px;
+		}
+		#right {
+		    position: absolute;
+		    top: 0;
+		    left: 100px;  /*值大于等于#left的宽度*/
+		    right: 0;
+		    background-color: #0f0;
+		    height: 500px;
+		}
+
+		.box5{
+			width: 100%;
+			margin-bottom: 20px;
+			display: flex;
+			height: 500px;
+		}
+		.box5 .left{
+			background-color: #f40;
+			width: 200px;
+		}
+		.box5 .right{
+			background-color: gray;
+			flex: 1;
+		}
+	</style>
+</head>
+<body>
+	<!-- 利用float+margin实现 -->
+	<div class="box1">
+		<div class="left">左列定宽</div>
+		<div class="right">右列自适应</div>
+	</div>
+
+	<!-- 利用float+margin(fix)实现 -->
+	<div class="box2">
+		<div class="left">左列定宽</div>
+		<div class="right-fix">
+			<div class="right">右列自适应</div>
+		</div>
+	</div>
+
+	<!-- 使用float+overflow实现 -->
+	<div class="box3">
+		<div class="left">左列定宽</div>
+		<div class="right">右列自适应</div>
+	</div>
+
+	<!-- 使用绝对定位实现 -->
+	<div id="parent">
+	    <div id="left">左列定宽</div>
+	    <div id="right">右列自适应</div>
+	</div>
+
+	<!-- 使用flex实现 -->
+	<div class="box5">
+		<div class="left">左列定宽</div>
+		<div class="right">右列自适应</div>
+	</div>
+	
+</body>
+</html>
